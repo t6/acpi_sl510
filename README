@@ -1,0 +1,13 @@
+FreeBSD kernel module for controlling the LCD brightness level of a
+ThinkPad SL510
+
+This module exposes a sysctl `dev.acpi_sl510.lcd_brightness` which can
+be set to values between 0 and 15.
+
+1. Build with make.
+2. Copy acpi_sl510.ko to /boot/modules.
+3. Load the kernel modules acpi_ibm and acpi_sl510
+4. Make sure to add dev.acpi_ibm.0.events=1
+5. and a default brightness level with dev.acpi_sl510.lcd_brightness=8
+   to /etc/sysctl.conf
+6. Copy thinkpad_sl510.conf to /usr/local/etc/devd/
